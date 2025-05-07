@@ -1,0 +1,27 @@
+<div class="wrapper" [ngClass]="{'view-nft-details': singleNFTView}">
+    <header>
+        <div class="price-section">
+            <span class="text">your balance</span>
+            <span class="amount">{{walletBalance | currency}}</span>
+        </div>
+        <div class="plus-btn">
+            <img src="assets/icons/plus.png" alt="">
+        </div>
+    </header>
+    <div class="coins coins-1">
+        <button (click)="onClickCrypto('coins1_' + i, coin)" [ngClass]="{'active': activeCryptoID == 'coins1_' + i}"
+            *ngFor="let coin of coins1; index as i">
+            <img class="coin-icon" src="{{coin.icon}}" />
+            <span>{{coin.name}}</span>
+        </button>
+    </div>
+    <div class="coins coins-2">
+        <button (click)="onClickCrypto('coins2_' + i, coin)" [ngClass]="{'active': activeCryptoID == 'coins2_' + i}"
+            *ngFor="let coin of coins2; index as i">
+            <img class="coin-icon" src="{{coin.icon}}" />
+            <span>{{coin.name}}</span>
+        </button>
+    </div>
+    <app-nft-detail *ngFor="let nft of nfts" [nft]="nft"></app-nft-detail>
+</div>
+<app-crypto-detail [show]="cryptoView" [coin]="activeCrypto" (close)="cryptoView = false"></app-crypto-detail>

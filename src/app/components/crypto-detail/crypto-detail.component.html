@@ -1,0 +1,28 @@
+<div class="wrapper" [ngClass]="{show}">
+    <header class="mx-3 my-3">
+        <img (click)="onClickBackBtn()" class="back-btn" src="assets/icons/arrow-right.svg" alt="back button">
+        <div>
+            <img class="icon" src="{{coin.icon}}" alt="{{coin.name}} icon">
+            <span>{{coin.name}}</span>
+        </div>
+    </header>
+    <div class="price-section mx-3">
+        {{coin.price | currency}}
+        <small>{{ coin.delta >= 0 ? '+' : ''}}{{coin.delta}}({{coin.deltaPercentage}}%)</small>
+    </div>
+    <div class="time-span">
+        <button (click)="onSelectPeriod(period.period)" [ngClass]="{'active': activePeriod == period.period}"
+            *ngFor="let period of periods">
+            {{period.text}}
+        </button>
+    </div>
+    <div id="ticker-graph" class="flex-grow-1">
+        <svg preserveAspectRatio="none" viewBox="0 0 400 600"></svg>
+    </div>
+    <div class="action-btns">
+        <button class="sell-btn"> sell <img src="assets/icons/top-right-arrow.png" alt="sell button icon">
+        </button>
+        <button class="buy-btn"> buy <img src="assets/icons/bottom-right-arrow.png" alt="buy button icon">
+        </button>
+    </div>
+</div>

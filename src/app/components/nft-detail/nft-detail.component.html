@@ -1,0 +1,46 @@
+<div class="wrapper">
+    <div class="main-view" [ngClass]="{'single-view-mode': singleViewMode}">
+        <img (click)="onCloseSingleView()" class="back-btn" src="assets/icons/arrow-right.svg" alt="">
+        <div class="image" (click)="onImageClick()" #image>
+            <img src="{{nft.image}}" alt="image of {{nft.name}} NFT">
+        </div>
+        <!-- visible only in details view mode -->
+        <div class="details-section">
+            <div class="display-4 m-4 mb-2 mx-3">{{nft.name}} #{{nft.number}}</div>
+            <div class="d-flex justify-content-between mx-3">
+                <div>
+                    <small class="text-muted ml-2">creator</small>
+                    <div class="author-name-section">
+                        <img src="assets/images/author-icon.png" alt="">
+                        <span>{{nft.creator}}</span>
+                    </div>
+                </div>
+                <button class="add-user-btn">
+                    <!-- add user icon -->
+                    <fa-icon [icon]="faUserPlus"></fa-icon>
+                </button>
+            </div>
+            <div class="d-flex">
+                <div class="details-time flex-grow-1 text-center p-3 bg-muted">
+                    <app-countdown [time]="nft.dateCreated"></app-countdown>
+                </div>
+                <div class="details-price flex-grow-1 text-center p-3 bg-muted">
+                    <img src="assets/icons/ethereum.svg" alt="" class="icon">
+                    <span>{{nft.price | number}}</span>
+                </div>
+            </div>
+            <button class="place-bid-btn">place a bid <img src="assets/icons/arrow-right.svg" alt="">
+            </button>
+        </div>
+    </div>
+    <div class="label">
+        <div class="price-section">
+            <!-- TODO convert and display the price in currently selected crypto currency -->
+            <img class="icon" src="assets/icons/ethereum.svg" alt="">
+            <span>{{nft.price | number}}</span>
+        </div>
+        <div class="time-section">
+            <app-countdown [time]="nft.dateCreated"></app-countdown>
+        </div>
+    </div>
+</div>

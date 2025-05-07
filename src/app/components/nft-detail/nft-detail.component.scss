@@ -1,0 +1,159 @@
+.wrapper {
+    padding: 4px;
+}
+
+.image {
+    overflow: hidden;
+    border-radius: 24px 24px 12px 12px;
+    height: 20rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 0;
+    transition: all .5s ease-in;
+
+    img {
+        max-height: 100%;
+        object-position: center center;
+    }
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2D2E36;
+    border-radius: 12px 12px 24px 24px;
+    padding: 20px;
+    margin-top: 2px;
+}
+
+.price-section {
+    display: flex;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    align-items: center;
+}
+
+.main-view {
+    transition: all .5s ease-out;
+}
+
+/* single page view */
+.single-view-mode {
+    // position: fixed;
+    // top: 0;
+    // bottom: 0;
+    // left: 0;
+    height: 100svh;
+    width: 100%;
+    padding: 3px;
+    background-color: #0E0E18;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(var(--to-top));
+
+    .details-section {
+        height: unset;
+    }
+
+    .image {
+        flex-grow: 1;
+        transition: all .5s ease-in;
+        // width: 100%;
+        // img {
+        //     width: 100%;
+        // }
+    }
+
+    .label {
+        transform: translateY(1000px);
+    }
+
+    .back-btn {
+        display: block;
+    }
+}
+
+.details-section {
+    height: 0px;
+    overflow: hidden;
+
+    // transition: height 2s ease-in;
+    .add-user-btn {
+        background-color: transparent;
+        color: rgba(245, 245, 245, 0.857);
+        background-image: none;
+        border: none;
+        border-radius: 15px;
+        border: 1px solid #3a3a72;
+        padding: 14px 15px;
+    }
+
+    .author-name-section {
+        height: 1.5rem;
+
+        &>img {
+            height: 100%;
+            margin-right: 5px;
+        }
+    }
+}
+
+img.icon {
+    filter: invert(1);
+    max-height: 1.5rem;
+    margin-right: 10px;
+}
+
+.bg-muted {
+    background-color: #2D2E36;
+}
+
+.details-time,
+.details-price {
+    border-radius: 20px;
+    margin-right: 2px;
+    flex-basis: 1px;
+    margin-top: 20px;
+}
+
+.details-price {
+    margin-right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+        opacity: .3;
+    }
+}
+
+.place-bid-btn {
+    background-color: #C1E1A1;
+    border: none;
+    border-radius: 25px;
+    padding: 20px;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1.6rem;
+    font-weight: 300;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+        max-height: 30px;
+        margin-left: .8rem;
+    }
+}
+
+.back-btn {
+    transform: rotate(180deg);
+    height: 30px;
+    position: absolute;
+    top: 3rem;
+    left: 20px;
+    display: none;
+}
